@@ -24,7 +24,7 @@ namespace Trpo_task_1.Drozdov
         }
 
         public void Log(string str) 
-            => Log(str);
+            => _log(str);
 
         public void Write() 
             => _write();

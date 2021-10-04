@@ -1,4 +1,4 @@
-﻿namespace Trpo_task_1.Core
+﻿namespace Trpo_task_1.Drozdov
 {
     public interface ILinearEquation
     {

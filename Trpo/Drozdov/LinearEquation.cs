@@ -1,7 +1,6 @@
-﻿using System;
-using Trpo_task_1.Core;
+﻿using Trpo_task_1.Core;
 
-namespace Trpo_task_1.Equation
+namespace Trpo_task_1.Drozdov
 {
     public class LinearEquation : ILinearEquation
     {
@@ -10,7 +9,7 @@ namespace Trpo_task_1.Equation
         public double Solve(double a, double b)
         {
             if (a == 0)
-                throw new ArgumentException("a can't be zero!");
+                throw new DrozdovException("a can't be zero!");
 
             CashedLinearEquationX = -b / a;
             return CashedLinearEquationX;

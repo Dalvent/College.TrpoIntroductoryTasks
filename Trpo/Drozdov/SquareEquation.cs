@@ -1,7 +1,7 @@
 ﻿using System;
 using Trpo_task_1.Core;
 
-namespace Trpo_task_1.Equation
+namespace Trpo_task_1.Drozdov
 {
     public class SquareEquation : LinearEquation, IEquation
     {
@@ -9,8 +9,12 @@ namespace Trpo_task_1.Equation
         
         public double[] Solve(double a, double b, double c)
         {
-            CashedSquareEquationXs = CalculateSquareEquitation(a, b, c);
-            return CashedSquareEquationXs;
+            var squareEquitation = CalculateSquareEquitation(a, b, c);
+            if (squareEquitation.Length == 0)
+                throw new DrozdovException("Equation not exist");
+            
+            CashedSquareEquationXs = squareEquitation;
+            return squareEquitation;
         }
 
         private double[] CalculateSquareEquitation(double a, double b, double c)

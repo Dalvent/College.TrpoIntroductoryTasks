@@ -1,6 +1,6 @@
 ﻿using Trpo_task_1.Core;
 
-namespace Trpo_task_1.Equation
+namespace Trpo_task_1.Drozdov
 {
     public class LinearEquationToEquationAdapter : IEquation
     {
