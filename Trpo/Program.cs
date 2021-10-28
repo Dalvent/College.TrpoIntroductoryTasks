@@ -50,10 +50,5 @@ namespace Trpo
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = enc1251;
         }
-        
-        private static string GetLogPath()
-        {
-            return Environment.ExpandEnvironmentVariables("%appdata%/Log");
-        }
     }
 }
