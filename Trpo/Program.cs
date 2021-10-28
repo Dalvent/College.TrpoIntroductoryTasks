@@ -1,18 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Lab.Drozdov;
 
 namespace Lab
 {
     class Program
-    {   
-        static void Main(string[] args)
+    {
+        private const string RootDirectoryPath = @"../../../../";
+        private const string Version = "version";
+        
+        private static async Task InitApp()
+        {
+            await File.ReadAllTextAsync(($"{RootDirectoryPath}{Version}"));
+        }
+        
+        static async Task Main(string[] args)
         {
             ApplyRuConsole();
+            await InitApp();
 
+            DrozdovLog.Instance.InitLogDirectory(GetProjectRootPath());
+            
             DrozdovLog.Instance.Log("Введите a, b и c");
             float a = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
             float b = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
@@ -49,6 +62,16 @@ namespace Lab
 
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = enc1251;
+        }
+
+        private static string GetProjectRootPath()
+        {
+            return $"{RootDirectoryPath}Log";
+        }
+        
+        private static string GetRoamingPath()
+        {
+            return Environment.ExpandEnvironmentVariables("%appdata%/Log");
         }
     }
 }
