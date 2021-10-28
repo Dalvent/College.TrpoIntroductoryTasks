@@ -1,8 +1,9 @@
-﻿using Trpo_task_1.Core;
+﻿using System.Collections.Generic;
+using Trpo.Core;
 
-namespace Trpo_task_1.Drozdov
+namespace Trpo.Drozdov
 {
-    public class LinearEquationToEquationAdapter : IEquation
+    public class LinearEquationToEquationAdapter : EquationInterface
     {
         private readonly ILinearEquation _linearEquation;
 
@@ -11,9 +12,9 @@ namespace Trpo_task_1.Drozdov
             _linearEquation = linearEquation;
         }
 
-        public double[] Solve(double a, double b, double c = 0)
+        public List<float> Solve(float a, float b, float c = 0)
         {
-            return new [] { _linearEquation.Solve(a, b) };
+            return new() { _linearEquation.Solve(a, b) };
         }
     }
 }

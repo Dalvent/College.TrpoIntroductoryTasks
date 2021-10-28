@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Trpo_task_1.Drozdov
+namespace Trpo.Drozdov
 {
     [Serializable]
     public class DrozdovException : Exception

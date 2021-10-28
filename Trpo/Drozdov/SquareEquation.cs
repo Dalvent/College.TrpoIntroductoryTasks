@@ -1,41 +1,42 @@
 ﻿using System;
-using Trpo_task_1.Core;
+using System.Collections.Generic;
+using Trpo.Core;
 
-namespace Trpo_task_1.Drozdov
+namespace Trpo.Drozdov
 {
-    public class SquareEquation : LinearEquation, IEquation
+    public class SquareEquation : LinearEquation, EquationInterface
     {
-        public double[] CashedSquareEquationXs { get; set; }
+        public List<float> CashedSquareEquationXs { get; set; }
         
-        public double[] Solve(double a, double b, double c)
+        public List<float> Solve(float a, float b, float c)
         {
             var squareEquitation = CalculateSquareEquitation(a, b, c);
-            if (squareEquitation.Length == 0)
+            if (squareEquitation.Count == 0)
                 throw new DrozdovException("Equation not exist");
             
             CashedSquareEquationXs = squareEquitation;
             return squareEquitation;
         }
-
-        private double[] CalculateSquareEquitation(double a, double b, double c)
+        
+        private List<float> CalculateSquareEquitation(float a, float b, float c)
         {
             if (a == 0) 
-                return new[] { base.Solve(b, c) };
+                return new List<float>() { base.Solve(b, c) };
 
-            double discriminant = Discriminant(a, b, c);
+            float discriminant = Discriminant(a, b, c);
 
             if (discriminant < 0)
-                return Array.Empty<double>();
+                return new List<float>();
 
             if (discriminant == 0)
-                return new[] { (-b) / (2 * a) };
+                return new List<float>() { (-b) / (2 * a) };
 
-            var sqrtDiscriminant = Math.Sqrt(discriminant);
-            return new[] {( -b + sqrtDiscriminant) / (2 * a), (-b - sqrtDiscriminant) / (2 * a) };
+            float sqrtDiscriminant = (float)Math.Sqrt(discriminant);
+            return new List<float>() {( -b + sqrtDiscriminant) / (2 * a), (-b - sqrtDiscriminant) / (2 * a) };
         }
-        
 
-        protected double Discriminant(double a, double b,  double c)
+
+        private float Discriminant(float a, float b, float c)
         {
             return b * b - 4 * a * c;
         }

@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace Trpo_task_1.Drozdov
+namespace Trpo.Drozdov
 {
     public static class MyLogExtenstions
     {
-        public static string ReadLine(this MyLog myLog)
+        public static string ReadLine(this DrozdovLog drozdovLog)
         {
             var line = Console.ReadLine();
-            myLog.Log(line);
+            drozdovLog.Log(line);
             return line;
         }
     }

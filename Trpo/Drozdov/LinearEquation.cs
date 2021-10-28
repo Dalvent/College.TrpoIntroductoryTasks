@@ -1,12 +1,12 @@
-﻿using Trpo_task_1.Core;
+﻿using System.Collections.Generic;
 
-namespace Trpo_task_1.Drozdov
+namespace Trpo.Drozdov
 {
     public class LinearEquation : ILinearEquation
     {
-        public double CashedLinearEquationX { get; set; }
+        public float CashedLinearEquationX { get; set; }
 
-        public double Solve(double a, double b)
+        public float Solve(float a, float b)
         {
             if (a == 0)
                 throw new DrozdovException("a can't be zero!");

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Trpo_task_1.Drozdov;
+using Trpo.Drozdov;
 
-namespace Trpo_task_1
+namespace Trpo
 {
     class Program
     {   
@@ -12,30 +13,32 @@ namespace Trpo_task_1
         {
             ApplyRuConsole();
 
-            MyLog.Instance.Log("Введите a, b и c");
-            double a = Convert.ToDouble(MyLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
-            double b = Convert.ToDouble(MyLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
-            double c = Convert.ToDouble(MyLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
+            DrozdovLog.Instance.InitLogDirectory(GetLogPath());
+            
+            DrozdovLog.Instance.Log("Введите a, b и c");
+            float a = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
+            float b = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
+            float c = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
 
             try
             {
                 bool isSquare = a != 0;
                 string aPartOfEquation = isSquare ? $"{a}a^2 + " : "";
-                MyLog.Instance.Log($"{(isSquare ? "Квадратное уравнение" : "Линейное уравнение")} {aPartOfEquation}{b}b + {c}c = 0");
+                DrozdovLog.Instance.Log($"{(isSquare ? "Квадратное уравнение" : "Линейное уравнение")} {aPartOfEquation}{b}b + {c}c = 0");
 
                 var squareEquation = new SquareEquation();
-                MyLog.Instance.Log(SquareEquationResultToString(squareEquation.Solve(a, b, c)));
+                DrozdovLog.Instance.Log(SquareEquationResultToString(squareEquation.Solve(a, b, c)));
             }
             catch (DrozdovException ex)
             {
-                MyLog.Instance.Log("Уравнение не существует");
+                DrozdovLog.Instance.Log("Уравнение не существует");
             }
             
-            MyLog.Instance.Write();
+            DrozdovLog.Instance.Write();
             Console.ReadLine();
         }
 
-        private static string SquareEquationResultToString(double[] results)
+        private static string SquareEquationResultToString(List<float> results)
         {
             int i = 0;
             return String.Join("\n", results.Select(x => $"x{++i} {x}"));
@@ -48,6 +51,11 @@ namespace Trpo_task_1
 
             Console.OutputEncoding = Encoding.UTF8;
             Console.InputEncoding = enc1251;
+        }
+        
+        private static string GetLogPath()
+        {
+            return Environment.ExpandEnvironmentVariables("%appdata%/Log");
         }
     }
 }

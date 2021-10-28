@@ -1,7 +1,7 @@
-﻿namespace Trpo_task_1.Drozdov
+﻿namespace Trpo.Drozdov
 {
     public interface ILinearEquation
     {
-        double Solve(double a, double b);
+        float Solve(float a, float b);
     }
 }
