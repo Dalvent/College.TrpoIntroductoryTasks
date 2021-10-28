@@ -1,4 +1,4 @@
-﻿namespace Trpo.Drozdov
+﻿namespace Lab.Drozdov
 {
     public interface ILinearEquation
     {

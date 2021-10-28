@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Trpo.Drozdov
+namespace Lab.Drozdov
 {
     public class LinearEquation : ILinearEquation
     {

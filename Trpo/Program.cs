@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Trpo.Drozdov;
+using Lab.Drozdov;
 
-namespace Trpo
+namespace Lab
 {
     class Program
     {   

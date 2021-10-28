@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using Trpo.Core;
+using Lab.Core;
 
-namespace Trpo.Drozdov
+namespace Lab.Drozdov
 {
     public class DrozdovLog : LogAbstract, LogInterface
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Trpo.Drozdov
+namespace Lab.Drozdov
 {
     [Serializable]
     public class DrozdovException : Exception

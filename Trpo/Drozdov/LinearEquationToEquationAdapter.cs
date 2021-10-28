@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Trpo.Core;
+using Lab.Core;
 
-namespace Trpo.Drozdov
+namespace Lab.Drozdov
 {
     public class LinearEquationToEquationAdapter : EquationInterface
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Trpo.Drozdov
+namespace Lab.Drozdov
 {
     public static class MyLogExtenstions
     {
