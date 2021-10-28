@@ -17,11 +17,6 @@ namespace Trpo.Drozdov
         {
         }
 
-        public void InitLogDirectory(string directoryPath)
-        {
-            _directoryPath = directoryPath;
-        }
-        
         public LogInterface Write()
         {
             WriteLogsToConsole();

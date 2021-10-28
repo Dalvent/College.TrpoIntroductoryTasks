@@ -13,8 +13,6 @@ namespace Trpo
         {
             ApplyRuConsole();
 
-            DrozdovLog.Instance.InitLogDirectory(GetLogPath());
-            
             DrozdovLog.Instance.Log("Введите a, b и c");
             float a = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
             float b = Convert.ToSingle(DrozdovLog.Instance.ReadLine(), CultureInfo.InvariantCulture);
