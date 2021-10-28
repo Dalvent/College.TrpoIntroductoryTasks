@@ -16,7 +16,7 @@ namespace Lab
         
         private static async Task InitApp()
         {
-            await File.ReadAllTextAsync(($"{RootDirectoryPath}{Version}"));
+            AppInfo.Version = (await File.ReadAllTextAsync(($"{RootDirectoryPath}{Version}"))).Trim();
         }
         
         static async Task Main(string[] args)
